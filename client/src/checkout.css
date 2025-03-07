@@ -1,0 +1,30 @@
+.payform {
+    border-radius: 5px;
+    background-color: rgb(92, 171, 50);
+    height: 600px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    margin-left: 200px;
+    margin-right: 200px;
+    align-items: center;
+    justify-content:center ;
+}
+
+.inputcont> input{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+}
+.inputcont > label{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.headingforpayment{
+    margin: 1%;
+    text-align: center;
+}

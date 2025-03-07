@@ -1,0 +1,88 @@
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin-left: 20%;
+  }
+
+  .login-container {
+    position: absolute;
+    background: rgba(133, 96, 96, 0.564);
+    padding: 30px;
+    width: 300px;
+    border-radius: 15px;
+    text-align: center;
+  }
+
+  .login-container h2 {
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  
+  .input-group label {
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: 0.3s ease;
+  }
+  
+  .input-group input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Error messages */
+  .error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* Submit Button */
+  .btn {
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .btn:hover {
+    background: #0056b3;
+  }
+  .bg-image{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    filter: blur(1px);
+    fill-opacity: inherit;
+    justify-content: center;
+  }
+
+.ifalreadysignup{
+  margin-top: 20px;
+  font-size: larger;
+  }
+.ifalreadylogin{
+  text-decoration: underline;
+  color: red;
+}

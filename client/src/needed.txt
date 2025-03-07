@@ -1,0 +1,163 @@
+
+    
+    <button onClick={()=>setVisibleComponent("fav")}>Fruits and </button>
+    <button onClick={()=>setVisibleComponent("diary")}>Diary</button>
+    {visibleComponent==="fav" && <Freshproducts/>}
+    {visibleComponent==="diary" && <CdiaryPro/>}
+
+     <img src='fuitsvegeimg.jpg' alt='fresh products' onClick={handleImageClick}/>
+        {showComponent && <FruitsVegetables />}
+
+
+        {showComponent==="dairy" && <Dairyproducts/>}
+            {showComponent==="grains" && <Grains/>}
+            {showComponent==="vegetables" && <Vegetables/>}
+            {showComponent==="oilandmasala" && <Oil/>}
+            {showComponent==="beautyandhygiene" && <Beautyandhygiene/>}
+            {showComponent==="household" && <Household/>}
+            {showComponent==="softdrinks" && <Beverages/>}
+            {showComponent==="cakes" && <Cakes/>}
+            {showComponent==="snack" && <Snack/>}
+
+
+            import Dairyproducts from './products/Dairyproducts';
+import Grains from './products/Grains';
+import Vegetables from './products/Vegetables';
+import Oil from './products/Oil';
+import Household from './products/Household';
+import Cakes from './products/Cakes';
+import Snack from './products/Snack';
+import Beautyandhygiene from './products/Beautyandhygiene';
+import Beverages from './products/Beverages';
+import React, { useState } from "react";
+
+
+
+
+
+
+
+
+
+const SidebarMenu = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="relative">
+      {/* Toggle Button */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="bg-green-600 text-white px-4 py-2 rounded-md"
+      >
+        Shop by Category
+      </button>
+
+      {/* Sidebar */}
+      <div
+        className={`fixed top-0 left-0 h-full w-64 bg-black text-white transition-transform duration-300 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <button
+          onClick={() => setIsOpen(false)}
+          className="absolute top-4 right-4 text-white"
+        >
+          ✖
+        </button>
+        <ul className="p-4 space-y-2">
+          <li className="bg-gray-800 p-2 rounded-md">Electronics</li>
+          <li>Fashion</li>
+          <li>Apparel</li>
+          <li>Fruits & Vegetables</li>
+          <li>Beauty & Hygiene</li>
+          <li>Kitchen, Garden & Pets</li>
+          <li>Gourmet & World Food</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default SidebarMenu;
+
+
+
+const popupStyle = {
+  position: 'fixed',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  padding: '20px',
+  backgroundColor: 'rgba(0, 0, 0, 0.7)',
+  color: 'white',
+  borderRadius: '8px',
+  textAlign: 'center',
+  boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.3)',
+};
+
+
+
+
+
+
+
+
+  width :40%;
+  color: white;
+  padding:'10px'
+  borderRadius: '8px'
+  textAlign: 'center'
+  boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.3)'
+
+
+
+
+
+
+
+  const Categorystyle={
+  position:'fixed',
+  top:'10%',
+  left:'10%',
+  height:'50%',
+  width:'40%',
+  background:'grey',
+  color: 'white',
+  padding:'10px',
+  borderRadius: '8px',
+  textAlign: 'center',
+  boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.3)',
+};
+
+
+
+
+
+
+{"id":1,"img":"/vegetables/banana stem.jpg","alt":"Banana stem"},
+      {"id":2,"img":"/vegetables/beans.jpg","alt":"  Beans"},
+      {"id":3,"img":"/vegetables/beetroot.jpg","alt":"Beetroot"},
+      {"id":4,"img":"/vegetables/brinjal.jpg","alt":"Brinjal"},
+      {"id":5,"img":"/vegetables/cabbage.jpg","alt":"cabbage"},
+      {"id":6,"img":"/vegetables/carrot.jpg","alt":"carrot"},
+      {"id":7,"img":"/vegetables/green-banana.jpg","alt":"Green banana"},
+      {"id":8,"img":"/vegetables/onion.jpg","alt":"Big onion"},
+      {"id":9,"img":"/vegetables/potato.jpg","alt":"Potato "},
+      {"id":10,"img":"/vegetables/pumpkin.jpg","alt":"Pumpkin "},
+      {"id":11,"img":"/vegetables/radish.jpg","alt":"Radish"}, 
+      {"id":12,"img":"/vegetables/small onion.jpg","alt":"Small onion "},  
+      {"id":13,"img":"/vegetables/tomato.jpg","alt":"Tomato "},
+
+      
+
+
+
+ animation: spin 1s linear infinite; 
+@keyframes spin {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
