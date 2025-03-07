@@ -16,6 +16,7 @@ import Floursandmasala from './pages/Floursandmasala'
 import Cart from './pages/Cart';
 import Checkoutpage from './pages/Checkout';
 import SignupPage from './pages/SignupPage';
+import Payment from './pages/Payment';
 function App() {
   return(
     <>
@@ -37,6 +38,7 @@ function App() {
       <Route path='/cart' element={<Cart/>}/>
       <Route path='/Checkoutpage' element={<Checkoutpage/>}/>
       <Route path='/SignupPage' element={<SignupPage/>}/>
+      <Route path='/Payment' element={<Payment/>}/>
     </Routes>
     </BrowserRouter>
     </>

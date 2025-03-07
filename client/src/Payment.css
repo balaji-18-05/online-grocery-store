@@ -1,0 +1,11 @@
+.paymentmodes{
+    margin-top: 100px;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px dotted black;
+    background-color: antiquewhite;
+}

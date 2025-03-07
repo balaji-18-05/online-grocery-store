@@ -1,14 +1,14 @@
 .toleft{
-  position: absolute;
-  margin-top: 6px;
-  margin-left:6%;
+  float: left;
+  margin-top: 100px;
+  margin-left:20px;
   font-size: x-large;
 
 }
 .toright{
-  position: absolute;
-  margin-top: 6px;
-  margin-left:91%;
+  float: right;
+  margin-top: 100px;
+  margin-right: 20px  ;
   font-size: x-large;
 }
 #toleftarrow{

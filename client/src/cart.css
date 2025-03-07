@@ -33,7 +33,7 @@
     width: 400px;
     height: auto;
     border-radius: 10px;
-    background-color: rgb(144, 177, 90);
+    background-color: rgb(245, 250, 236);
 }
 .check_sentence{
     font-size: xx-large;
@@ -50,16 +50,16 @@
   }
   
   .price_on_product {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     margin-left: 20px; 
   }
   .total_on_list{
     margin-top: 20px;
-    color: white;
-    margin-left: 210px;
+    margin-left: 65%;
+    color: rgb(0, 0, 0);
+    margin-right: 20px;
   }
   #tot{
-   
     color: black;
   }
   .payment_sentence{
