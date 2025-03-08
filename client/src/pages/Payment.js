@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Payment.css'
+import '../styles/Payment.css'
 export default function Payment() {
   return (
     <div className='paymentmodes'>

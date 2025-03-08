@@ -1,5 +1,5 @@
 import React from 'react';
-import '../checkout.css';
+import '../styles/checkout.css';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import Footer from "../Footer";

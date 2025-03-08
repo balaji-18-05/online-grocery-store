@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import '../cart.css'
+import '../styles/cart.css'
 import { CartContext } from "./CartContext";
 import MenuAppBar from "../Navbar";
 import Footer from "../Footer";
@@ -58,6 +58,8 @@ export default function Cart() {
     <p className="check_sentence">  Total Cost : ₹{totalAmount}</p>
     <p className="your_orders">Your orders</p>
     <div className='checkout_container'>
+
+    
      
     <ol>
     {cart.map((itr, index) => (

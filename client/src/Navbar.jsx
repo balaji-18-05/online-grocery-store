@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from "react";
-import "./navstyle.css";
+import "./styles/navstyle.css";
 import { useNavigate } from "react-router-dom";
+import {FaBars,FaTimes} from "react-icons/fa";
+import { useRef } from "react";
+
 
 export default function MenuAppBar() {
+
+  const NavRef=useRef();
+
+  const shownavbar =()=>{
+    NavRef.current.Classlist.toggle(" responsive-nav");
+  }
+
   const navigate = useNavigate();
   const [btn, setBtn] = useState(false);
 
@@ -24,7 +34,7 @@ export default function MenuAppBar() {
   }, [btn]);
 
   return (
-    <div className="navigationbar">
+    <div className="navigationbar" ref={NavRef}>
       <div className="nav_container">
         <div className="logoandname">
           <img src="logo icon.png"></img>
@@ -58,6 +68,7 @@ export default function MenuAppBar() {
           {/* Other Navigation */}
           <p onClick={() => navigate("/Login")}>Login in</p>
           <p onClick={() => navigate("/cart")}>Cart</p>
+          
         </div>
       </div>
     </div>

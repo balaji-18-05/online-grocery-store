@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import MenuAppBar from "../Navbar";
 import Footer from "../Footer";
 import { CartContext } from "./CartContext";
-import '../cart.css'
+import '../styles/cart.css'
 import ScrollToTop from "./Scrolltotop";
 export default function Vegetables() {
   const { addToCart, increaseQuantity, decreaseQuantity, cart } = useContext(CartContext);

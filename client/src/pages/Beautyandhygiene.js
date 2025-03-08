@@ -3,7 +3,7 @@ import MenuAppBar from "../Navbar";
 import Footer from "../Footer";
 import { CartContext } from "./CartContext";
 import ScrollToTop from "./Scrolltotop"
-import '../cart.css'
+import '../styles/cart.css'
 export default function Beautyandhygiene() {
   const { addToCart, increaseQuantity, decreaseQuantity, cart } = useContext(CartContext);
  

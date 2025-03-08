@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './foot.css'
+import './styles/foot.css'
 export default function Footer() {
   const [foot,setfoot]=useState("");
   const settingfoot=(item)=>{

@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import MainPage from './Main';
 import Fruits from './pages/Fruits';
 import LoginPage from './pages/LoginPage';
