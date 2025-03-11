@@ -1,31 +1,65 @@
-.navigationbar{
-    width: 100%;
-    height: 60px;
-    position: fixed;
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Titillium Web", sans-serif;
+}
+
+:root {
+	--mainColor: rgb(25, 125, 213);
+	--mainColorLight: #5767aa;
+	--secondaryColor: #db2b39;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 80px;
+	padding: 0 100px;
+	background-color: var(--mainColor);
+	color: var(--textColor);
+    position: sticky;
     top: 0;
-    background: rgb(25, 125, 213);
 }
-.nav_container{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    height: 60px;
+
+
+.navitems{
+    margin-left: 20%;
 }
-.home{
-    color: rgba(0,0,0,100);
-    gap: 0px 80px;
-    display: flex;
-    justify-content: space-between;
-    font-weight: 500;
-    font: caption;
-    font-size: large;
-    text-decoration: none;
-    margin:20px;
+
+.navitems p {
+    margin: 0 50px;
+	color: black;
+	font-weight: 500;
+	text-decoration: none;
+    font-size: x-large;
 }
-.home :hover{
-    text-decoration: underline;
-    color:peachpuff;
+
+.navitems p:hover {
+	color: var(--secondaryColor);
 }
+
+header .nav-btn {
+	padding: 5px;
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: var(--textColor);
+	visibility: hidden;
+	opacity: 0;
+	font-size: 1.8rem;
+}
+
+header div,.navitems {
+	display: flex;
+	align-items: center;
+}
+
+
 .catstyle {
     display: flex;
     flex-direction: column;
@@ -33,9 +67,8 @@
     border-radius: 10px;
     width: 200px;
     position: absolute;
-    top: 70px; 
-    left: 62%;
-    transform: translateX(-50%);
+    top: 80px; 
+    left: 52%;
     background: #f5deb3;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     padding: 10px;
@@ -67,13 +100,18 @@
     color: white;
     border-radius: 5px;
 }
+
+.logoandname > img{
+    height: 50px;
+}
+
 .logoandname{
     display:flex;
     word-spacing: 5px;
-    margin: 10px ;
+    margin: 10px;
 }
 
-.name{
+.name{  
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: xx-large;
     font-weight: 500;
@@ -83,4 +121,55 @@
     font-size: x-large;
     margin-left: 3px;
     color: rgb(0, 0, 0);
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+	header .nav-btn {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	header .open-btn{
+		margin-left: 50px;
+		margin-top: 10px;
+	}
+
+	header .navitems {
+		position: fixed;
+		top: -90vh;
+		margin-right: 100px;
+		right:0;
+		height: 50%;
+		width: 40%;
+		display: flex;
+		text-align: center;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--mainColor);
+		transition: 0.01s;
+		border-radius: 10px;
+		gap: 15px;
+	}
+
+	header .responsive_nav {
+		transform: translateY(100vh);
+	}
+
+	.navitems .nav-close-btn {
+		color: red;
+	}
+
+	.navitems a {
+		font-size: 1.5rem;
+	}
+
+    .catstyle {
+        justify-content: center;
+        left:-210px;
+    }
+	
+    
 }

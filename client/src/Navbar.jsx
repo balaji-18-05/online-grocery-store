@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from "react";
+import { useRef } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 import "./styles/navstyle.css";
 import { useNavigate } from "react-router-dom";
-import {FaBars,FaTimes} from "react-icons/fa";
-import { useRef } from "react";
+import React, { useState, useEffect } from "react";
 
+function MenuAppBar() {
+	const navRef = useRef();
 
-export default function MenuAppBar() {
+	const showNavbar = () => {
+		navRef.current.classList.toggle(
+			"responsive_nav"
+		);
+	};
 
-  const NavRef=useRef();
-
-  const shownavbar =()=>{
-    NavRef.current.Classlist.toggle(" responsive-nav");
-  }
 
   const navigate = useNavigate();
+  
   const [btn, setBtn] = useState(false);
 
   const Clickable = () => {
@@ -33,18 +35,17 @@ export default function MenuAppBar() {
     };
   }, [btn]);
 
-  return (
-    <div className="navigationbar" ref={NavRef}>
-      <div className="nav_container">
-        <div className="logoandname">
+
+	return (
+		<header>
+			<div className="logoandname">
           <img src="logo icon.png"></img>
           <p><span className="name">Selvi's</span><span className="store">store</span> </p>
         </div>
-        <div className="home">
-          <p onClick={() => navigate("/")}>Home</p>
-
-          <p className="category-btn" onClick={Clickable}>
-            Shop by categories
+			<nav ref={navRef} className="navitems">
+				<p onClick={()=>navigate("/")}>Home</p>
+        <p className="category-btn" onClick={Clickable}>
+            Categories
           </p>
 
           {btn && (
@@ -64,13 +65,21 @@ export default function MenuAppBar() {
               </ul>
             </div>
           )}
-
-          {/* Other Navigation */}
-          <p onClick={() => navigate("/Login")}>Login in</p>
-          <p onClick={() => navigate("/cart")}>Cart</p>
-          
-        </div>
-      </div>
-    </div>
-  );
+				<p onClick={()=>navigate("/Login")}>login in</p>
+				<p onClick={()=>navigate("/cart")}>Cart</p>
+				<button
+					className="nav-btn nav-close-btn"
+					onClick={showNavbar}>
+					<FaTimes />
+				</button>
+			</nav>
+			<button
+				className="nav-btn open-btn"
+				onClick={showNavbar}>
+				<FaBars />
+			</button>
+		</header>
+	);
 }
+
+export default  MenuAppBar;

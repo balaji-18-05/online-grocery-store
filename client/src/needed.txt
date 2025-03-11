@@ -161,3 +161,202 @@ const popupStyle = {
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React, { useState, useEffect } from "react";
+import "./styles/navstyle.css";
+import { useNavigate } from "react-router-dom";
+import {FaBars,FaTimes} from "react-icons/fa";
+import { useRef } from "react";
+
+
+export default function MenuAppBar() {
+
+  const NavRef=useRef();
+
+  const shownavbar =()=>{ 
+    NavRef.current.Classlist.toggle(" responsive-nav");
+  }
+
+  const navigate = useNavigate();
+  
+  const [btn, setBtn] = useState(false);
+
+  const Clickable = () => {
+    setBtn(!btn);
+  };
+
+  const handleClickOutside = (event) => {
+    if (btn && !event.target.closest(".catstyle") && !event.target.closest(".category-btn")) {
+      setBtn(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [btn]);
+
+  return (
+    <div className="navigationbar" ref={NavRef}>
+      <div className="nav_container">
+        <div className="logoandname">
+          <img src="logo icon.png"></img>
+          <p><span className="name">Selvi's</span><span className="store">store</span> </p>
+        </div>
+        <div className="home">
+          <p onClick={() => navigate("/")}>Home</p>
+
+          <p className="category-btn" onClick={Clickable}>
+            Shop by categories
+          </p>
+
+          {btn && (
+            <div className="catstyle">
+              <ul className="catlist">
+                <li onClick={() => navigate("/Fruits")}>Fruits</li>
+                <li onClick={() => navigate("/Vegetables")}>Vegetables</li>
+                <li onClick={() => navigate("/Dairy")}>Dairy Products</li>
+                <li onClick={() => navigate("/Beverages")}>Beverages</li>
+                <li onClick={() => navigate("/Riceandgrains")}>Rice and Grains</li>
+                <li onClick={() => navigate("/Oilandpulses")}>Oil and Pulses</li>
+                <li onClick={() => navigate("/Floursandmasala")}>Flour and Masala</li>
+                <li onClick={() => navigate("/Snackandchocolates")}>Snack and Chocolate</li>
+                <li onClick={() => navigate("/Cakesandbiscuits")}>Cakes and Biscuits</li>
+                <li onClick={() => navigate("/Beautyandhygiene")}>Beauty and Hygiene</li>
+                <li onClick={() => navigate("/Cleaningandhousehold")}>Cleaning and Household</li>
+              </ul>
+            </div>
+          )}
+
+          {/* Other Navigation */}
+          <p onClick={() => navigate("/Login")}>Login in</p>
+          <p onClick={() => navigate("/cart")}>Cart</p>
+          <button onClick={shownavbar}>
+          <FaTimes/>
+        </button>
+        </div>
+        <button onClick={shownavbar}>
+          <FaBars/>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.navigationbar{
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    background: rgb(25, 125, 213);
+}
+.nav_container{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 60px;
+}
+.home{
+    color: rgba(0,0,0,100);
+    gap: 0px 80px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font: caption;
+    font-size: large;
+    text-decoration: none;
+    margin:20px;
+}
+.home :hover{
+    text-decoration: underline;
+    color:peachpuff;
+}
+.catstyle {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid green;
+    border-radius: 10px;
+    width: 200px;
+    position: absolute;
+    top: 70px; 
+    left: 62%;
+    transform: translateX(-50%);
+    background: #f5deb3;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1000;
+}
+
+.catlist {
+    padding: 0;
+    margin: 0;
+}
+
+.catlist li {
+    list-style: none;
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(0, 128, 0, 0.3); 
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    transition:  0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.catlist li:last-child {
+    border-bottom: none;
+}
+
+.catlist li:hover {
+    background: green;
+    color: white;
+    border-radius: 5px;
+}
+.logoandname{
+    display:flex;
+    word-spacing: 5px;
+    margin: 10px ;
+    
+}
+
+.name{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: xx-large;
+    font-weight: 500;
+    color: white;
+}
+.store{
+    font-size: x-large;
+    margin-left: 3px;
+    color: rgb(0, 0, 0);
+}

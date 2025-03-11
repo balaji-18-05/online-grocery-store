@@ -43,7 +43,7 @@ export default function Cart() {
                     {item.quantity}
                     <button onClick={() => increaseQuantity(item.id)} className="plus_btn">➕</button>
                   </p>
-                  <button onClick={() => removeFromCart(item.id)} className="btn btn-danger">Remove</button>
+                  <button onClick={() => removeFromCart(item.id)} className="btn btn-danger remove-btn">Remove</button>
                 </div>
               </div>
             ))}

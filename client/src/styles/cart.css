@@ -13,6 +13,12 @@
     margin: 0px 10px;
 }
 
+.remove-btn{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
 .proceed_btn {
     margin-top: 100px;
     font-size: larger;
@@ -37,6 +43,7 @@
 }
 .check_sentence{
     font-size: xx-large;
+    text-align: center;
 }   
 .purchased_list p {
     margin-top: 10px;
