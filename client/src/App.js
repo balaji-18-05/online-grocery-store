@@ -39,6 +39,7 @@ function App() {
       <Route path='/Checkoutpage' element={<Checkoutpage/>}/>
       <Route path='/SignupPage' element={<SignupPage/>}/>
       <Route path='/Payment' element={<Payment/>}/>
+      <Route path='/register' element={<SignupPage/>}/>
     </Routes>
     </BrowserRouter>
     </>

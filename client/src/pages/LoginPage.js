@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../styles/login.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -36,7 +38,21 @@ function Login() {
     validatePassword(password);
 
     if (  !emailError && !passwordError && email && password) {
-      navigate("/");
+      axios.post('http://localhost:3001/login',{email,password})
+      .then(res=>{
+        console.log(res)
+        if(res.data==="success"){
+          navigate("/");
+        }
+        else if(res.data==="user not exist"){
+          alert("user doesn't exists");
+        }
+        else if(res.data==="password incorrect"){
+          alert("password incorrect!");
+        }
+      })
+      .catch(err=>console.log(err));
+      
     } else {
       alert("Fill all the details properly");
     }
@@ -53,11 +69,12 @@ function Login() {
           <h1>Login</h1>
 
           <div className="input-group">
-            <label>Email</label>
+            <label>Username or Email</label>
             <input
-              type="email"
+              type="text"
               required
-              placeholder="Enter your email..."
+              placeholder="Enter your useranme or email.."
+              name="email"
               value={email}
               onChange={(e) => validateEmail(e.target.value)}
             />
@@ -71,6 +88,7 @@ function Login() {
               required
               placeholder="Enter your password..."
               value={password}
+              name="password"
               onChange={(e) => validatePassword(e.target.value)}
             />
             {passwordError && <p className="error">{passwordError}</p>}

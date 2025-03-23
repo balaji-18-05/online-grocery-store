@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../styles/login.css";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+
 
 function Login() {
   const [name, setName] = useState("");
@@ -38,14 +40,28 @@ function Login() {
   };
 
   // Submit handler
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     validateName(name);
     validateEmail(email);
     validatePassword(password);
 
     if (!nameError && !emailError && !passwordError && name && email && password) {
-      navigate("/Login");
+      try {
+        const response = await axios.post('http://localhost:3001/register', { name, email, password })
+        
+        if(response.data === "exist") {
+          alert("User already exists! Try a different email.");
+      }else{
+          console.log(response.data);  
+          navigate("/Login"); 
+      }
+        
+      } catch (error) {
+        console.error("Error in registration:", error.response ? error.response.data : error.message);
+      }
+
+     
     } else {
       alert("Fill all the details properly");
     }
@@ -59,7 +75,8 @@ function Login() {
     <>
       <img src="bgimage.jpg" alt="bg-image" className="bg-image" />
       <div className="login-wrapper">
-        <form className="login-container" onSubmit={handleSubmit}>
+
+        <form className="login-container" onSubmit={handleSubmit} >
           <h1>Sign up</h1>
 
           <div className="input-group">
@@ -68,6 +85,7 @@ function Login() {
               type="text"
               required
               placeholder="Enter your name"
+              name="name"
               value={name}
               onChange={(e) => validateName(e.target.value)}
             />
@@ -80,6 +98,7 @@ function Login() {
               type="email"
               required
               placeholder="Enter your email..."
+              name="email"
               value={email}
               onChange={(e) => validateEmail(e.target.value)}
             />
@@ -92,6 +111,7 @@ function Login() {
               type="password"
               required
               placeholder="Enter your password..."
+              name="password"
               value={password}
               onChange={(e) => validatePassword(e.target.value)}
             />
